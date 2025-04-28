@@ -1,5 +1,6 @@
 <?php
-function isAuthenticated() {
+function isAuthenticated()
+{
     $headers = apache_request_headers();
     if (isset($headers['Authorization'])) {
         $authHeader = $headers['Authorization'];
@@ -13,4 +14,3 @@ function isAuthenticated() {
     }
     return false;
 }
-?>

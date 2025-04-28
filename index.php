@@ -2,9 +2,9 @@
 require_once __DIR__ . '/utils/load-env.php';
 require_once __DIR__ . '/utils/Auth.php';
 
-if($_REQUEST['debug']=='1'){
+if ($_REQUEST['debug'] == '1') {
     error_reporting(E_ALL);
-    ini_set('display_errors','ON');
+    ini_set('display_errors', 'ON');
 }
 
 header("Access-Control-Allow-Origin: *");

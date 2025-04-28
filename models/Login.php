@@ -1,17 +1,20 @@
 <?php
 require_once 'config/Database.php';
 
-class Login {
+class Login
+{
     private $conn;
     private $table_name = "login";
     private $token_table = "session_tokens";
 
-    public function __construct() {
+    public function __construct()
+    {
         $database = new Database();
         $this->conn = $database->getConnection();
     }
 
-    public function login($data) {
+    public function login($data)
+    {
         try {
             $username = $data['username'];
             $password = $data['password'];
@@ -23,8 +26,8 @@ class Login {
             if ($user) {
                 $pws_hash = getenv('PWS_HASH');
                 $hashed_password = $user['password'];
-        
-                if (password_verify($password.$pws_hash, $hashed_password)) {
+
+                if (password_verify($password . $pws_hash, $hashed_password)) {
 
                     $token = bin2hex(random_bytes(32));
                     $stmt_token = $this->conn->prepare("INSERT INTO " . $this->token_table . " (user_id, token) VALUES (?, ?)");
@@ -34,7 +37,7 @@ class Login {
                     $_SESSION['user_id'] = $user['id'];
                     $_SESSION['username'] = $user['username'];
                     $_SESSION['role'] = $user['role'];
-        
+
                     http_response_code(200);
                     return array("message" => "OK", "token" => $token, "role" => $user['role']);
                 } else {
@@ -51,15 +54,16 @@ class Login {
         }
     }
 
-    public function logout($data) {
+    public function logout($data)
+    {
         try {
             $query = "UPDATE " . $this->token_table . " SET estado = :estado WHERE token = :token";
             $stmt = $this->conn->prepare($query);
-    
+
             $estado = 'I';
             $stmt->bindParam(":token", $data['token']);
             $stmt->bindParam(":estado", $estado);
-    
+
             if ($stmt->execute()) {
                 if (session_status() == PHP_SESSION_NONE) {
                     session_start();
@@ -75,9 +79,10 @@ class Login {
             http_response_code(500);
             return array("message" => "Error al conectar a la base de datos: " . $e->getMessage());
         }
-    }    
+    }
 
-    public function getToken($id) {
+    public function getToken($id)
+    {
         $query = "SELECT * FROM " . $this->token_table . " WHERE token = ? AND estado = 'A' ";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(1, $id);
@@ -85,7 +90,8 @@ class Login {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function validateToken($token) {
+    public function validateToken($token)
+    {
         try {
             // Buscar el token en la base de datos
             $stmt = $this->conn->prepare("SELECT user_id FROM " . $this->token_table . " WHERE token = ? LIMIT 1");
@@ -107,4 +113,3 @@ class Login {
         }
     }
 }
-?>

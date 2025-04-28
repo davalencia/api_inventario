@@ -1,19 +1,22 @@
 <?php
-class Database {
+class Database
+{
     private $host;
     private $db_name;
     private $username;
     private $password;
     public $conn;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->host = getenv('DB_HOST');
         $this->db_name = getenv('DB_NAME');
         $this->username = getenv('DB_USER');
         $this->password = getenv('DB_PASSWORD');
     }
 
-    public function getConnection() {
+    public function getConnection()
+    {
         $this->conn = null;
         try {
             $this->conn = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->db_name, $this->username, $this->password);
@@ -26,4 +29,3 @@ class Database {
         return $this->conn;
     }
 }
-?>

@@ -1,6 +1,7 @@
 <?php
 require_once 'controllers/LoginController.php';
-function validateToken() {
+function validateToken()
+{
 
     $controller = new LoginController();
 
@@ -24,4 +25,3 @@ function validateToken() {
         exit();
     }
 }
-?>
