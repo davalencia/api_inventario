@@ -23,8 +23,7 @@ class Database
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->exec("set names utf8");
         } catch (PDOException $exception) {
-            error_log("Connection error: " . $exception->getMessage());
-            echo "Ha ocurrido un error de conexión. Por favor, inténtalo de nuevo más tarde.";
+            echo json_encode(["error" => true, "message" => "Ha ocurrido un error de conexión. Por favor, inténtalo de nuevo más tarde."]);
         }
         return $this->conn;
     }
