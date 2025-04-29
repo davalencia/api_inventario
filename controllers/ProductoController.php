@@ -51,21 +51,9 @@ class ProductoController
         echo json_encode($result);
     }
 
-    public function getTotalPrice()
-    {
-        $result = $this->model->getTotalPrice();
-        echo json_encode($result);
-    }
-
     public function getCount()
     {
         $result = $this->model->getCount();
-        echo json_encode($result);
-    }
-
-    public function getForYear()
-    {
-        $result = $this->model->getForYear();
         echo json_encode($result);
     }
 }

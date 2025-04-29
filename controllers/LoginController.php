@@ -19,6 +19,7 @@ class LoginController
 
     public function logout()
     {
+        validateToken();
         $data = json_decode(file_get_contents("php://input"), true);
         $result = $this->model->logout($data);
         echo json_encode($result);

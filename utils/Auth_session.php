@@ -1,8 +1,8 @@
 <?php
 require_once 'controllers/LoginController.php';
+
 function validateToken()
 {
-
     $controller = new LoginController();
 
     $headers = apache_request_headers();
@@ -16,12 +16,12 @@ function validateToken()
             return $user_id;
         } else {
             http_response_code(401);
-            echo json_encode(array("message" => "Acceso no autorizado."));
+            echo json_encode(array("error" => true, "message" => "Acceso no autorizado."));
             exit();
         }
     } else {
         http_response_code(401);
-        echo json_encode(array("message" => "Token no proporcionado."));
+        echo json_encode(array("error" => true, "message" => "Token no proporcionado."));
         exit();
     }
 }

@@ -30,12 +30,8 @@ switch ($resource) {
 try {
     switch ($request_method) {
         case 'GET':
-            if ($id === 'suma') {
-                $controller->getTotalPrice();
-            } elseif ($id === 'count') {
+            if ($id === 'count') {
                 $controller->getCount();
-            } elseif ($id === 'getYear') {
-                $controller->getForYear();
             } elseif ($id) {
                 $controller->get($id);
             } else {
