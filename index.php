@@ -21,7 +21,7 @@ header("Content-Type: application/json");
 
 if (!isAuthenticated()) {
     header("HTTP/1.0 401 Unauthorized");
-    echo json_encode(["error" => "Unauthorized"]);
+    echo json_encode(["error" => true, "message" => "Unauthorized"]);
     exit;
 }
 
