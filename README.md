@@ -21,15 +21,15 @@ Configuración:
 
 Estructura del Proyecto:
 api_inventario/
-  ├── DB/                  # Scripts de base de datos
-  ├── config/              # Configuraciones de la aplicación
-  ├── controllers/         # Controladores de la API
-  ├── models/              # Modelos de la base de datos
-  ├── routes/              # Definición de rutas
-  ├── utils/               # Utilidades y helpers
-  ├── .env                 # Variables de entorno
-  ├── .htaccess            # Configuración de Apache
-  └── index.php            # Punto de entrada
+├── DB/                  # Scripts de base de datos
+├── config/              # Configuraciones de la aplicación
+├── controllers/         # Controladores de la API
+├── models/              # Modelos de la base de datos
+├── routes/              # Definición de rutas
+├── utils/               # Utilidades y helpers
+├── .env                 # Variables de entorno
+├── .htaccess            # Configuración de Apache
+└── index.php            # Punto de entrada
   
 Autenticación:
 - La API utiliza autenticación por token JWT (Bearer Token). Para acceder a los endpoints protegidos, debes:
