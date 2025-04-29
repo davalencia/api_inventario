@@ -1,0 +1,372 @@
+{
+	"info": {
+		"_postman_id": "6c73e752-b8f3-4c84-978e-0e838a852b3c",
+		"name": "api_inventario",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26040849",
+		"_collection_link": "https://vsfttech.postman.co/workspace/Virtualsoft-TI-Postman~f9a7422b-d93e-480b-8a18-a661168912c2/collection/26040849-6c73e752-b8f3-4c84-978e-0e838a852b3c?action=share&source=collection_link&creator=26040849"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_inventario/session/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"session",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "268744623f55682b3ba34fe1d6a49f0f858b27395e8f01d0e3a117600295d42c",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"token\": \"268744623f55682b3ba34fe1d6a49f0f858b27395e8f01d0e3a117600295d42c\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_inventario/session/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"session",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Agregar producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "44c10354339fe9015197711a864522648f0d7e9e70858871794d744fc4933e11",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Pololo y mango\",\n    \"descripcion\": \"Pololo y mango son feos\",\n    \"precio\": \"20000\",\n    \"stock\": \"10\",\n    \"ubicacion\": \"Bello - salento\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_inventario/producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "44c10354339fe9015197711a864522648f0d7e9e70858871794d744fc4933e11",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nombre\": \"Prueba 10\",\n    \"descripcion\": \"Prueba 10\",\n    \"precio\": 20000,\n    \"stock\": 10,\n    \"ubicacion\": \"Medellin - salento\",\n    \"estado\": \"A\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_inventario/producto/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto",
+						"10"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar productos",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "cbbda4ff12f9285951d172a16f6077615b162460bba2754358a88c96b6bd04fb",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api_inventario/producto",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar producto por ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "cbbda4ff12f9285951d172a16f6077615b162460bba2754358a88c96b6bd04fb",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api_inventario/producto/14",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto",
+						"14"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Total de productos registrados",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "cbbda4ff12f9285951d172a16f6077615b162460bba2754358a88c96b6bd04fb",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api_inventario/producto/count",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto",
+						"count"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Listar producto por filtro",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "6287fe816efcdbb3ad2926bfbf3072cad8f71e1e3d74188a8e5f6487cd5e5aa1",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"search\": \"9288\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/api_inventario/producto/option",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto",
+						"option"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Eliminar producto",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "411987006dc0be82843dcca41ab30e01771f838dc3cb68cd81452bc0238fba5d",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "session_token",
+						"value": "cbbda4ff12f9285951d172a16f6077615b162460bba2754358a88c96b6bd04fb",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost/api_inventario/producto/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api_inventario",
+						"producto",
+						"16"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
