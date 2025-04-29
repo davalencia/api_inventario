@@ -9,62 +9,32 @@ Requisitos del Sistema
 
 Instalación
 Clonar el repositorio:
-git clone [URL_DEL_REPOSITORIO]
-cd api_inventario
-Instalar dependencias:
+- git clone https://github.com/davalencia/api_inventario.git
+- cd api_inventario
 
-bash
-Copy
-composer install
 Configurar la base de datos:
+- Crear una base de datos MySQL llamada api_inventario.
+- Importar el archivo SQL ubicado en DB.
 
-Crear una base de datos MySQL llamada api_inventario.
+Configuración:
+- CORS: Configura los encabezados CORS en .htaccess si es necesario.
 
-Importar el archivo SQL ubicado en DB/ (ver imagen proporcionada).
-
-Configurar el entorno:
-
-Copiar el archivo .env.example a .env y configurar las variables de entorno:
-
-ini
-Copy
-DB_HOST=localhost
-DB_NAME=api_inventario
-DB_USER=tu_usuario
-DB_PASSWORD=tu_contraseña
-Generar clave de aplicación:
-
-bash
-Copy
-php artisan key:generate
-Iniciar el servidor:
-
-bash
-Copy
-php -S localhost:8000 -t public
-Configuración
-Permisos: Asegúrate de que los directorios storage/ y bootstrap/cache/ tengan permisos de escritura.
-
-CORS: Configura los encabezados CORS en .htaccess si es necesario.
-
-Estructura del Proyecto
-Copy
+Estructura del Proyecto:
 api_inventario/
-├── DB/                  # Scripts de base de datos
-├── config/              # Configuraciones de la aplicación
-├── controllers/         # Controladores de la API
-├── models/              # Modelos de la base de datos
-├── routes/              # Definición de rutas
-├── utils/               # Utilidades y helpers
-├── .env                 # Variables de entorno
-├── .htaccess            # Configuración de Apache
-└── index.php            # Punto de entrada
-Autenticación
-La API utiliza autenticación por token JWT (Bearer Token). Para acceder a los endpoints protegidos, debes:
-
-Iniciar sesión con el endpoint /session/login para obtener un token.
-
-Incluir el token en el encabezado Authorization: Bearer [token] en cada solicitud.
+  ├── DB/                  # Scripts de base de datos
+  ├── config/              # Configuraciones de la aplicación
+  ├── controllers/         # Controladores de la API
+  ├── models/              # Modelos de la base de datos
+  ├── routes/              # Definición de rutas
+  ├── utils/               # Utilidades y helpers
+  ├── .env                 # Variables de entorno
+  ├── .htaccess            # Configuración de Apache
+  └── index.php            # Punto de entrada
+  
+Autenticación:
+- La API utiliza autenticación por token JWT (Bearer Token). Para acceder a los endpoints protegidos, debes:
+- Iniciar sesión con el endpoint /session/login para obtener un token.
+- Incluir el token en el encabezado Authorization: Bearer [token] en cada solicitud.
 
 Endpoints
 Login
